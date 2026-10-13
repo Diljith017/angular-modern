@@ -1,0 +1,42 @@
+<p>Login works!</p>
+
+<form #loginform="ngForm" (ngSubmit)="signup()">
+
+  <label>Username</label>
+
+  <input
+    type="text"
+    name="username"
+    placeholder="Enter the name"
+    [(ngModel)]="username"
+    required
+    #usernamefeild="ngModel"
+  >
+
+  @if (usernamefeild.invalid && usernamefeild.touched) {
+    <p>Enter the username</p>
+  }
+
+  <label>Password</label>
+
+  <input
+    type="password"
+    name="password"
+    placeholder="Enter the password"
+    [(ngModel)]="password"
+    required
+    #passwordfeild="ngModel"
+  >
+
+  @if (passwordfeild.invalid && passwordfeild.touched) {
+    <p>Password is required</p>
+  }
+
+  <button
+    type="submit"
+    [disabled]="loginform.invalid"
+  >
+    Login
+  </button>
+
+</form>
